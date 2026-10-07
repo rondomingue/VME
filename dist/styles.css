@@ -143,6 +143,15 @@ nav a:hover { color: var(--pink); }
 .zach-details { align-self: end; padding-bottom: .5rem; }
 .zach-details p { max-width: 28rem; font-size: 1.15rem; line-height: 1.5; }
 
+.elizabeth-feature { min-height: 100svh; display: grid; grid-template-columns: 64% 36%; background: #c9b99f; color: #18120d; }
+.elizabeth-art { position: relative; min-height: 100svh; overflow: hidden; border-right: 1px solid rgba(24,18,13,.35); }
+.elizabeth-art img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.elizabeth-feature:hover .elizabeth-art img { transform: scale(1.018); }
+.elizabeth-copy { padding: 5rem 3.5vw; display: flex; flex-direction: column; justify-content: center; }
+.elizabeth-copy .section-label { color: #6c2e0b; }
+.elizabeth-copy h2 { margin: 2rem 0; font-size: clamp(3.2rem, 5.7vw, 6.8rem); line-height: .82; letter-spacing: -.075em; }
+.elizabeth-copy p { max-width: 27rem; font-size: 1.1rem; line-height: 1.55; }
+
 footer { min-height: 70svh; display: grid; grid-template-columns: 1fr 1fr; align-items: end; padding: 4rem 4vw 2rem; position: relative; background: var(--pink); color: var(--deep); overflow: hidden; }
 .footer-logo { position: absolute; width: min(48vw, 40rem); right: -5vw; top: 50%; transform: translateY(-50%) rotate(8deg); border-radius: 50%; overflow: hidden; mix-blend-mode: multiply; }
 .footer-logo img { aspect-ratio: 1; object-fit: cover; }
@@ -178,6 +187,10 @@ footer > p { position: relative; z-index: 2; margin: 0 0 6rem; max-width: 32rem;
   .zach-art { height: 48svh; min-height: 24rem; }
   .zach-copy { grid-template-columns: 1fr; gap: 3rem; min-height: 65svh; padding: 3rem 1.25rem; }
   .zach-copy h2 { font-size: clamp(4rem, 18vw, 7rem); }
+  .elizabeth-feature { grid-template-columns: 1fr; }
+  .elizabeth-art { min-height: 62svh; border-right: 0; border-bottom: 1px solid rgba(24,18,13,.35); }
+  .elizabeth-copy { min-height: 68svh; padding: 4rem 1.25rem; }
+  .elizabeth-copy h2 { font-size: clamp(3.5rem, 14vw, 6rem); }
   footer { min-height: 80svh; padding: 3rem 1.25rem 1.5rem; }
   .footer-logo { width: 90vw; right: -38vw; opacity: .7; }
   footer > p { max-width: 80%; margin-bottom: 7rem; }
