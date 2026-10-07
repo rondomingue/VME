@@ -133,6 +133,16 @@ nav a:hover { color: var(--pink); }
 .joshua-art img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.7,.2,1); }
 .joshua-feature:hover .joshua-art img { transform: scale(1.02); }
 
+.zach-feature { min-height: 100svh; background: #020205; color: var(--paper); }
+.zach-art { position: relative; height: 54svh; min-height: 30rem; overflow: hidden; border-bottom: 1px solid var(--line); }
+.zach-art img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+.zach-feature:hover .zach-art img { transform: scale(1.018); }
+.zach-copy { min-height: 46svh; display: grid; grid-template-columns: 62% 38%; align-items: end; padding: 3rem 4vw 4rem; }
+.zach-copy .section-label { color: #ff412f; }
+.zach-copy h2 { margin: 1.5rem 0 0; font-size: clamp(4rem, 9vw, 10rem); line-height: .76; letter-spacing: -.08em; }
+.zach-details { align-self: end; padding-bottom: .5rem; }
+.zach-details p { max-width: 28rem; font-size: 1.15rem; line-height: 1.5; }
+
 footer { min-height: 70svh; display: grid; grid-template-columns: 1fr 1fr; align-items: end; padding: 4rem 4vw 2rem; position: relative; background: var(--pink); color: var(--deep); overflow: hidden; }
 .footer-logo { position: absolute; width: min(48vw, 40rem); right: -5vw; top: 50%; transform: translateY(-50%) rotate(8deg); border-radius: 50%; overflow: hidden; mix-blend-mode: multiply; }
 .footer-logo img { aspect-ratio: 1; object-fit: cover; }
@@ -165,6 +175,9 @@ footer > p { position: relative; z-index: 2; margin: 0 0 6rem; max-width: 32rem;
   .joshua-feature { grid-template-columns: 1fr; }
   .joshua-copy { min-height: 65svh; padding: 4rem 1.25rem; }
   .joshua-art { min-height: 72svh; }
+  .zach-art { height: 48svh; min-height: 24rem; }
+  .zach-copy { grid-template-columns: 1fr; gap: 3rem; min-height: 65svh; padding: 3rem 1.25rem; }
+  .zach-copy h2 { font-size: clamp(4rem, 18vw, 7rem); }
   footer { min-height: 80svh; padding: 3rem 1.25rem 1.5rem; }
   .footer-logo { width: 90vw; right: -38vw; opacity: .7; }
   footer > p { max-width: 80%; margin-bottom: 7rem; }
