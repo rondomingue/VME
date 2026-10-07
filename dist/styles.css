@@ -13,7 +13,7 @@ body {
   margin: 0;
   color: var(--paper);
   background: var(--ink);
-  font-family: "Manrope", sans-serif;
+  font-family: "effra-cc", Arial, sans-serif;
   font-size: 16px;
   overflow-x: hidden;
 }
@@ -62,7 +62,7 @@ nav a:hover { color: var(--pink); }
 .hero-logo { position: absolute; z-index: 1; top: 6.5rem; right: 3.5rem; width: clamp(9rem, 14vw, 15rem); height: auto; filter: drop-shadow(0 1.5rem 2.5rem rgba(240,0,190,.18)); transform: rotate(5deg); }
 .eyebrow, .section-label { font: 500 .72rem/1.3 "DM Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
 .eyebrow { color: var(--pink); }
-.hero h1 { margin: 2rem 0 3rem; font-size: clamp(5rem, 9.8vw, 11.5rem); line-height: .69; letter-spacing: -.105em; font-weight: 800; }
+.hero h1 { margin: 2rem 0 3rem; font-size: clamp(5rem, 9.8vw, 11.5rem); line-height: .69; letter-spacing: -.105em; font-weight: 700; }
 .hero h1 span { display: block; }
 .hero h1 span:nth-child(2) { color: var(--pink); margin-left: -.35rem; }
 .hero-bottom { display: flex; gap: 3rem; align-items: flex-end; }
@@ -75,14 +75,14 @@ nav a:hover { color: var(--pink); }
 
 .statement { background: var(--paper); color: var(--ink); padding: 8rem 6vw 7rem; }
 .statement .section-label { margin-bottom: 3rem; }
-.manifesto { margin: 0 0 5rem; max-width: 82rem; font-size: clamp(2.65rem, 6.15vw, 7.2rem); line-height: .91; letter-spacing: -.075em; font-weight: 800; }
+.manifesto { margin: 0 0 5rem; max-width: 82rem; font-size: clamp(2.65rem, 6.15vw, 7.2rem); line-height: .91; letter-spacing: -.075em; font-weight: 700; }
 .manifesto em { color: var(--pink); font-style: normal; }
 .hosts { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding-top: 1.25rem; border-top: 1px solid rgba(9,8,10,.3); font: 500 .78rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .07em; }
 .hosts a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .hosts .plus { color: var(--pink); font-size: 1.2rem; }
 
 .conversation-index { display: grid; grid-template-columns: 42% 58%; gap: 4vw; padding: 8rem 4vw; background: #0d0b10; border-top: 1px solid var(--line); }
-.conversation-index h2 { margin: 1.8rem 0 0; max-width: 48rem; font-size: clamp(3.6rem, 6.8vw, 8.4rem); line-height: .8; letter-spacing: -.085em; font-weight: 800; }
+.conversation-index h2 { margin: 1.8rem 0 0; max-width: 48rem; font-size: clamp(3.6rem, 6.8vw, 8.4rem); line-height: .8; letter-spacing: -.085em; font-weight: 700; }
 .conversation-index ol { margin: 0; padding: 0; list-style: none; }
 .conversation-index li { border-top: 1px solid var(--line); }
 .conversation-index li:last-child { border-bottom: 1px solid var(--line); }
@@ -104,7 +104,7 @@ nav a:hover { color: var(--pink); }
 .episode-reverse .episode-copy { border-left: 0; border-right: 1px solid color-mix(in srgb, var(--episode-fg) 22%, transparent); }
 .episode-kicker { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid color-mix(in srgb, var(--episode-fg) 30%, transparent); font: 500 .7rem/1 "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
 .episode-kicker .status { color: var(--episode-accent); }
-.episode-copy h2 { margin: 3rem 0 2rem; font-size: clamp(4.5rem, 7.35vw, 9.4rem); line-height: .7; letter-spacing: -.1em; font-weight: 800; }
+.episode-copy h2 { margin: 3rem 0 2rem; font-size: clamp(4.5rem, 7.35vw, 9.4rem); line-height: .7; letter-spacing: -.1em; font-weight: 700; }
 .episode-copy > p { max-width: 31rem; margin: 0; font-size: clamp(1rem, 1.25vw, 1.22rem); line-height: 1.55; }
 .episode-tags { display: flex; flex-wrap: wrap; gap: .55rem; margin: 2.5rem 0 0; padding: 0; list-style: none; }
 .episode-tags li { border: 1px solid color-mix(in srgb, var(--episode-fg) 36%, transparent); border-radius: 100px; padding: .6rem .8rem; font: 500 .64rem/1 "DM Mono", monospace; letter-spacing: .07em; text-transform: uppercase; }
