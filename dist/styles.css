@@ -117,7 +117,7 @@ nav a:hover { color: var(--pink); }
 .episode .artwork-credit { top: auto; bottom: 1.25rem; left: 1.25rem; }
 .episode-pink { --episode-bg: var(--pink); --episode-fg: #171327; --episode-accent: #171327; }
 .episode-hosts { --episode-bg: #171327; --episode-fg: #f0ede6; --episode-accent: var(--pink); }
-.episode-hosts .episode-art::after { content: ""; position: absolute; inset: 0; background: rgba(240,0,190,.34); mix-blend-mode: color; pointer-events: none; }
+.episode-hosts .episode-art::after { content: ""; position: absolute; inset: 0; background: rgba(240,0,190,.14); mix-blend-mode: color; pointer-events: none; }
 .episode-hosts .artwork-credit { z-index: 2; }
 .episode-light { --episode-bg: #ece9e2; --episode-fg: #0a090b; --episode-accent: #e000b1; }
 .episode-dark { --episode-bg: #0c0a0f; --episode-fg: #f0ede6; --episode-accent: #a76bff; }
