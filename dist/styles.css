@@ -90,11 +90,6 @@ nav a:hover { color: var(--pink); }
   transform: scaleX(var(--word-fit, 1));
   will-change: transform, opacity;
 }
-.hero-letter {
-  display: inline-block;
-  transform-origin: left center;
-  will-change: transform, opacity;
-}
 .hero-bottom { display: flex; gap: 3rem; align-items: flex-end; }
 .hero-bottom p { max-width: 31rem; margin: 0; font-size: clamp(1rem, 1.35vw, 1.3rem); line-height: 1.45; }
 .hero-facts { display: flex; gap: .55rem; flex-wrap: wrap; margin-top: 2rem; }
