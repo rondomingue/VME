@@ -92,6 +92,7 @@ nav a:hover { color: var(--pink); }
 .interlude { position: relative; min-height: 85svh; background: #050506; overflow: hidden; display: grid; place-items: center; }
 .interlude > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .72; transform: scale(1.03); }
 .interlude::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 40% 50%, transparent 0 20%, rgba(0,0,0,.08) 42%, rgba(0,0,0,.7) 100%); }
+.artwork-credit { position: absolute; z-index: 3; top: 2rem; left: 2rem; padding: .65rem .85rem; border: 1px solid rgba(255,255,255,.45); color: var(--paper); background: rgba(9,8,10,.68); font: 500 .68rem "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
 .orbit { position: relative; z-index: 2; width: 30rem; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.4); border-radius: 50%; display: grid; place-items: center; font: 500 1rem "DM Mono", monospace; letter-spacing: .22em; color: var(--acid); animation: spin 22s linear infinite; }
 .orbit::after { content: "VME"; color: var(--paper); font: 700 7rem "Manrope", sans-serif; letter-spacing: -.1em; animation: spinBack 22s linear infinite; }
 .interlude-note { position: absolute; z-index: 3; right: 4vw; bottom: 3.5rem; border-left: 1px solid var(--pink); padding-left: 1rem; }
@@ -143,6 +144,7 @@ footer > p { position: relative; z-index: 2; margin: 0 0 6rem; max-width: 32rem;
   .feature-image { min-height: 60svh; }
   .feature-copy { min-height: 70svh; padding: 4rem 1.25rem; }
   .orbit { width: min(78vw, 28rem); }
+  .artwork-credit { top: 1.25rem; left: 1.25rem; }
   .interlude-note { right: 1.25rem; }
   .guest-art-note { left: 1.25rem; right: 1.25rem; width: auto; }
   .guest-list { grid-template-columns: 1fr; padding: 5rem 1.25rem; gap: 3rem; }
