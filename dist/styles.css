@@ -113,6 +113,13 @@ nav a:hover { color: var(--pink); }
 .episode-copy > p { max-width: 31rem; margin: 0; font-size: clamp(1rem, 1.25vw, 1.22rem); line-height: 1.55; }
 .episode-tags { display: flex; flex-wrap: wrap; gap: .55rem; margin: 2.5rem 0 0; padding: 0; list-style: none; }
 .episode-tags li { border: 1px solid color-mix(in srgb, var(--episode-fg) 36%, transparent); border-radius: 100px; padding: .6rem .8rem; font: 500 .64rem/1 var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+.episode-play { width: min(100%, 25rem); margin-top: 2.4rem; padding: .85rem 1.1rem .85rem .85rem; display: flex; align-items: center; gap: 1rem; color: var(--episode-fg); background: transparent; border: 1px solid color-mix(in srgb, var(--episode-fg) 48%, transparent); border-radius: 100px; text-align: left; }
+.episode-play:disabled { opacity: .72; cursor: not-allowed; }
+.play-glyph { width: 3rem; height: 3rem; flex: 0 0 auto; display: grid; place-items: center; padding-left: .15rem; border-radius: 50%; color: var(--deep); background: var(--pink); font-size: .9rem; }
+.play-copy { display: grid; gap: .2rem; }
+.play-copy strong, .play-copy small { font-family: var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+.play-copy strong { font-size: .82rem; font-weight: 700; }
+.play-copy small { font-size: .62rem; color: color-mix(in srgb, var(--episode-fg) 64%, transparent); }
 .episode .text-link { color: var(--episode-fg); }
 .episode .artwork-credit { top: auto; bottom: 1.25rem; left: 1.25rem; }
 .episode-pink { --episode-bg: var(--pink); --episode-fg: #171327; --episode-accent: #171327; }
