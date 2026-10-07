@@ -36,6 +36,16 @@ if (heroWordSlot && initialHeroWord && !window.matchMedia('(prefers-reduced-moti
   let methodIndex = 0;
   let currentHeroWord = initialHeroWord;
 
+  const splitHeroWord = (wordElement, word) => {
+    wordElement.textContent = '';
+    [...word].forEach((character) => {
+      const letter = document.createElement('span');
+      letter.className = 'hero-letter';
+      letter.textContent = character === ' ' ? '\u00a0' : character;
+      wordElement.append(letter);
+    });
+  };
+
   const fitHeroWord = (wordElement) => {
     const naturalWidth = wordElement.scrollWidth;
     const availableWidth = heroWordSlot.clientWidth;
@@ -45,6 +55,7 @@ if (heroWordSlot && initialHeroWord && !window.matchMedia('(prefers-reduced-moti
     return { fit, naturalWidth };
   };
 
+  splitHeroWord(currentHeroWord, currentHeroWord.textContent);
   fitHeroWord(currentHeroWord);
   document.fonts?.ready.then(() => fitHeroWord(currentHeroWord));
   window.addEventListener('resize', () => fitHeroWord(currentHeroWord));
@@ -53,33 +64,55 @@ if (heroWordSlot && initialHeroWord && !window.matchMedia('(prefers-reduced-moti
     const [word, hold] = heroMethods[methodIndex];
     const incomingWord = document.createElement('span');
     incomingWord.className = 'hero-word';
-    incomingWord.textContent = word;
+    splitHeroWord(incomingWord, word);
     heroWordSlot.append(incomingWord);
     const { fit, naturalWidth } = fitHeroWord(incomingWord);
     const incomingWidth = naturalWidth * fit;
     const impactFit = fit * .82;
     const impactWidth = naturalWidth * impactFit;
     const outgoingFit = Number.parseFloat(currentHeroWord.dataset.fit) || 1;
-    const outgoingCrush = outgoingFit * .58;
-
-    const timing = { duration: 980, easing: 'cubic-bezier(.22, .72, .18, 1)', fill: 'forwards' };
+    const timing = { duration: 1050, easing: 'cubic-bezier(.22, .72, .18, 1)', fill: 'forwards' };
     const incomingAnimation = incomingWord.animate([
-      { opacity: 1, transform: `translate3d(${-incomingWidth - 90}px, 0, 0) scale(${fit}, 1)`, offset: 0 },
-      { opacity: 1, transform: `translate3d(${-impactWidth}px, 0, 0) scale(${impactFit}, .94)`, offset: .38 },
-      { opacity: 1, transform: `translate3d(${-impactWidth}px, 0, 0) scale(${impactFit}, .94)`, offset: .46 },
-      { opacity: 1, transform: `translate3d(0, 0, 0) scale(${fit}, 1)`, offset: .84 },
+      { opacity: 1, transform: `translate3d(${-incomingWidth - 110}px, 0, 0) rotate(-1.5deg) scale(${fit}, 1)`, offset: 0 },
+      { opacity: 1, transform: `translate3d(${-impactWidth}px, 0, 0) rotate(0) scale(${impactFit}, .95)`, offset: .34 },
+      { opacity: 1, transform: `translate3d(${-impactWidth}px, 0, 0) rotate(0) scale(${impactFit}, .95)`, offset: .43 },
+      { opacity: 1, transform: `translate3d(0, 0, 0) rotate(.35deg) scale(${fit}, 1.015)`, offset: .82 },
       { opacity: 1, transform: `translate3d(0, 0, 0) scale(${fit}, 1)`, offset: 1 }
     ], timing);
 
     const outgoingAnimation = currentHeroWord.animate([
       { opacity: 1, transform: `translate3d(0, 0, 0) scale(${outgoingFit}, 1)`, offset: 0 },
-      { opacity: 1, transform: `translate3d(0, 0, 0) scale(${outgoingFit}, 1)`, offset: .38 },
-      { opacity: .92, transform: `translate3d(0, 0, 0) scale(${outgoingCrush}, .96)`, offset: .46 },
-      { opacity: .22, transform: `translate3d(${incomingWidth}px, 0, 0) scale(${outgoingCrush}, .96)`, offset: .84 },
-      { opacity: 0, transform: `translate3d(${incomingWidth + 110}px, 0, 0) scale(${outgoingFit * .16}, .92)`, offset: 1 }
+      { opacity: 1, transform: `translate3d(0, 0, 0) scale(${outgoingFit}, 1)`, offset: .34 },
+      { opacity: 1, transform: `translate3d(8px, 0, 0) scale(${outgoingFit}, 1)`, offset: .43 },
+      { opacity: 1, transform: `translate3d(${incomingWidth + 8}px, 0, 0) scale(${outgoingFit}, 1)`, offset: .82 },
+      { opacity: 1, transform: `translate3d(${incomingWidth + 130}px, 0, 0) scale(${outgoingFit}, 1)`, offset: 1 }
     ], timing);
 
-    await Promise.all([incomingAnimation.finished, outgoingAnimation.finished]);
+    const outgoingLetters = [...currentHeroWord.querySelectorAll('.hero-letter')];
+    const letterAnimations = outgoingLetters.map((letter, index) => {
+      const progress = outgoingLetters.length > 1 ? index / (outgoingLetters.length - 1) : 0;
+      const squeeze = .42 + (progress * .38);
+      const finalSqueeze = .16 + (progress * .2);
+      const shear = -15 + (progress * 9);
+      const roll = 14 - (progress * 7);
+      return letter.animate([
+        { opacity: 1, transform: 'translate3d(0, 0, 0) skewX(0) rotate(0) scaleX(1)', offset: 0 },
+        { opacity: 1, transform: `translate3d(0, 0, 0) skewX(${shear}deg) rotate(${roll * .28}deg) scaleX(${squeeze})`, offset: .36 },
+        { opacity: .68, transform: `translate3d(${10 + progress * 8}px, ${-3 + progress * 5}px, 0) skewX(${shear * .55}deg) rotate(${roll * .68}deg) scaleX(${squeeze * .7})`, offset: .7 },
+        { opacity: 0, transform: `translate3d(${28 + progress * 16}px, ${5 + progress * 5}px, 0) skewX(0) rotate(${roll}deg) scaleX(${finalSqueeze})`, offset: 1 }
+      ], {
+        duration: 680,
+        delay: 450 + (index * 42),
+        easing: 'cubic-bezier(.3, .68, .28, 1)',
+        fill: 'forwards'
+      });
+    });
+
+    await Promise.all([
+      incomingAnimation.finished,
+      outgoingAnimation.finished,
+      ...letterAnimations.map((animation) => animation.finished)
+    ]);
     currentHeroWord.remove();
     incomingAnimation.cancel();
     currentHeroWord = incomingWord;
