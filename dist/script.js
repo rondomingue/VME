@@ -1,54 +1,56 @@
 const soundButton = document.querySelector('[data-sound-toggle]');
 const year = document.querySelector('[data-year]');
-const heroWord = document.querySelector('[data-hero-word]');
+const heroWordSlot = document.querySelector('.hero-word-slot');
+const initialHeroWord = document.querySelector('[data-hero-word]');
 
 year.textContent = new Date().getFullYear();
 
 const heroMethods = [
-  ['Painting', 'medium'],
-  ['Designing', 'medium'],
-  ['Escaping', 'medium', 2200],
-  ['Creating', 'medium'],
-  ['Directing', 'medium'],
-  ['Escaping', 'medium', 2200],
-  ['Coding', 'short'],
-  ['Photographing', 'long'],
-  ['Escaping', 'medium', 2200],
-  ['Illustrating', 'long'],
-  ['Writing', 'short'],
-  ['Escaping', 'medium', 2200],
-  ['Animating', 'medium'],
-  ['Composing', 'medium'],
-  ['Escaping', 'medium', 2200],
-  ['Filmmaking', 'medium'],
-  ['Editing', 'short'],
-  ['Escaping', 'medium', 2200],
-  ['Sculpting', 'medium'],
-  ['Storytelling', 'long'],
-  ['Escaping', 'medium', 2400],
-  ['Making', 'short'],
-  ['Building', 'medium'],
-  ['Escaping', 'medium', 2600]
+  ['Painting', 1250],
+  ['Designing', 1250],
+  ['Escape', 2300],
+  ['Creating', 1250],
+  ['Directing', 1250],
+  ['Escape', 2300],
+  ['Coding', 1250],
+  ['Photographing', 1450],
+  ['Escape', 2300],
+  ['Illustrating', 1350],
+  ['Writing', 1250],
+  ['Escape', 2300],
+  ['Animating', 1250],
+  ['Composing', 1250],
+  ['Escape', 2300],
+  ['Filmmaking', 1350],
+  ['Editing', 1250],
+  ['Escape', 2300],
+  ['Sculpting', 1250],
+  ['Storytelling', 1350],
+  ['Escape', 2400],
+  ['Making', 1250],
+  ['Building', 1250],
+  ['Escape', 2600]
 ];
 
-if (heroWord && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+if (heroWordSlot && initialHeroWord && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   let methodIndex = 0;
+  let currentHeroWord = initialHeroWord;
 
   const rotateHeroMethod = () => {
-    const [word, size, hold = 1250] = heroMethods[methodIndex];
-    heroWord.classList.add('is-exiting');
+    const [word, hold] = heroMethods[methodIndex];
+    const incomingWord = document.createElement('span');
+    incomingWord.className = 'hero-word is-entering';
+    incomingWord.textContent = word;
+    heroWordSlot.append(incomingWord);
+    currentHeroWord.classList.add('is-bumped');
 
     window.setTimeout(() => {
-      heroWord.textContent = word;
-      heroWord.dataset.size = size;
-      heroWord.classList.remove('is-exiting');
-      heroWord.classList.add('is-entering');
-      window.requestAnimationFrame(() => {
-        window.requestAnimationFrame(() => heroWord.classList.remove('is-entering'));
-      });
+      currentHeroWord.remove();
+      incomingWord.classList.remove('is-entering');
+      currentHeroWord = incomingWord;
       methodIndex = (methodIndex + 1) % heroMethods.length;
       window.setTimeout(rotateHeroMethod, hold);
-    }, 340);
+    }, 700);
   };
 
   window.setTimeout(rotateHeroMethod, 1800);
