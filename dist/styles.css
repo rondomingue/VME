@@ -124,6 +124,15 @@ nav a:hover { color: var(--pink); }
 .platforms { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 3rem; }
 .platforms span { border: 1px solid rgba(9,8,10,.35); border-radius: 100px; padding: .7rem 1rem; font: .68rem "DM Mono", monospace; text-transform: uppercase; }
 
+.joshua-feature { min-height: 100svh; display: grid; grid-template-columns: 38% 62%; background: var(--deep); }
+.joshua-copy { padding: 5rem 4vw; display: flex; flex-direction: column; justify-content: center; }
+.joshua-copy .section-label { color: var(--acid); }
+.joshua-copy h2 { margin: 2rem 0; color: var(--paper); font-size: clamp(3.4rem, 6.5vw, 7.6rem); line-height: .82; letter-spacing: -.075em; }
+.joshua-copy p { max-width: 27rem; font-size: 1.1rem; line-height: 1.55; }
+.joshua-art { position: relative; min-height: 100svh; overflow: hidden; }
+.joshua-art img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+.joshua-feature:hover .joshua-art img { transform: scale(1.02); }
+
 footer { min-height: 70svh; display: grid; grid-template-columns: 1fr 1fr; align-items: end; padding: 4rem 4vw 2rem; position: relative; background: var(--pink); color: var(--deep); overflow: hidden; }
 .footer-logo { position: absolute; width: min(48vw, 40rem); right: -5vw; top: 50%; transform: translateY(-50%) rotate(8deg); border-radius: 50%; overflow: hidden; mix-blend-mode: multiply; }
 .footer-logo img { aspect-ratio: 1; object-fit: cover; }
@@ -153,6 +162,9 @@ footer > p { position: relative; z-index: 2; margin: 0 0 6rem; max-width: 32rem;
   .signal { grid-template-columns: 1fr; }
   .signal-art { min-height: 60svh; }
   .signal-copy { min-height: 65svh; padding: 4rem 1.25rem; }
+  .joshua-feature { grid-template-columns: 1fr; }
+  .joshua-copy { min-height: 65svh; padding: 4rem 1.25rem; }
+  .joshua-art { min-height: 72svh; }
   footer { min-height: 80svh; padding: 3rem 1.25rem 1.5rem; }
   .footer-logo { width: 90vw; right: -38vw; opacity: .7; }
   footer > p { max-width: 80%; margin-bottom: 7rem; }
