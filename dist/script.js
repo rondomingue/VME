@@ -36,12 +36,28 @@ if (heroWordSlot && initialHeroWord && !window.matchMedia('(prefers-reduced-moti
   let methodIndex = 0;
   let currentHeroWord = initialHeroWord;
 
+  const fitHeroWord = (wordElement) => {
+    const naturalWidth = wordElement.scrollWidth;
+    const availableWidth = heroWordSlot.clientWidth;
+    const fit = naturalWidth > 0 ? Math.min(1, availableWidth / naturalWidth) : 1;
+    wordElement.style.setProperty('--word-fit', fit.toFixed(3));
+    wordElement.style.setProperty('--word-squish', (fit * .78).toFixed(3));
+    wordElement.style.setProperty('--word-stretch', Math.min(1, fit * 1.045).toFixed(3));
+    wordElement.style.setProperty('--word-crush', (fit * .5).toFixed(3));
+    wordElement.style.setProperty('--word-vanish', (fit * .16).toFixed(3));
+  };
+
+  fitHeroWord(currentHeroWord);
+  document.fonts?.ready.then(() => fitHeroWord(currentHeroWord));
+  window.addEventListener('resize', () => fitHeroWord(currentHeroWord));
+
   const rotateHeroMethod = () => {
     const [word, hold] = heroMethods[methodIndex];
     const incomingWord = document.createElement('span');
     incomingWord.className = 'hero-word is-entering';
     incomingWord.textContent = word;
     heroWordSlot.append(incomingWord);
+    fitHeroWord(incomingWord);
     currentHeroWord.classList.add('is-bumped');
 
     window.setTimeout(() => {
@@ -50,7 +66,7 @@ if (heroWordSlot && initialHeroWord && !window.matchMedia('(prefers-reduced-moti
       currentHeroWord = incomingWord;
       methodIndex = (methodIndex + 1) % heroMethods.length;
       window.setTimeout(rotateHeroMethod, hold);
-    }, 700);
+    }, 800);
   };
 
   window.setTimeout(rotateHeroMethod, 1800);

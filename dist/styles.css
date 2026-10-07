@@ -82,27 +82,28 @@ nav a:hover { color: var(--pink); }
   top: 0;
   left: 0;
   width: max-content;
-  font-size: .62em;
+  font-size: .86em;
   line-height: .86;
   letter-spacing: -.075em;
   white-space: nowrap;
   transform-origin: left center;
+  transform: scaleX(var(--word-fit, 1));
   will-change: transform, opacity;
 }
-.hero-word.is-entering { animation: word-bump-in .68s cubic-bezier(.2, 1.25, .35, 1) both; }
-.hero-word.is-bumped { animation: word-bumped-out .68s cubic-bezier(.55, 0, .8, .25) both; }
+.hero-word.is-entering { animation: word-bump-in .78s cubic-bezier(.16, 1.2, .3, 1) both; }
+.hero-word.is-bumped { animation: word-bumped-out .78s cubic-bezier(.5, 0, .8, .25) both; }
 
 @keyframes word-bump-in {
-  0% { opacity: 0; transform: translate3d(112%, .1em, 0) rotate(7deg) scale(.96); }
-  54% { opacity: 1; transform: translate3d(-.12em, 0, 0) rotate(-2.4deg) scale(1.01); }
-  76% { transform: translate3d(.05em, 0, 0) rotate(1deg) scale(1); }
-  100% { opacity: 1; transform: translate3d(0, 0, 0) rotate(0) scale(1); }
+  0% { opacity: 0; transform: translate3d(108%, 0, 0) rotate(4deg) scaleX(var(--word-squish, .7)); }
+  48% { opacity: 1; transform: translate3d(-.08em, 0, 0) rotate(-1.5deg) scaleX(var(--word-squish, .7)); }
+  68% { transform: translate3d(.035em, 0, 0) rotate(.6deg) scaleX(var(--word-stretch, 1)); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) rotate(0) scaleX(var(--word-fit, 1)); }
 }
 
 @keyframes word-bumped-out {
-  0% { opacity: 1; transform: translate3d(0, 0, 0) rotate(0) scale(1); }
-  24% { opacity: 1; transform: translate3d(-.08em, 0, 0) rotate(-1deg) scale(1.015); }
-  100% { opacity: 0; transform: translate3d(-28%, -72%, 0) rotate(-11deg) scale(.9); }
+  0% { opacity: 1; transform: translate3d(0, 0, 0) rotate(0) scaleX(var(--word-fit, 1)); }
+  36% { opacity: .95; transform: translate3d(-.13em, 0, 0) rotate(-1deg) scaleX(var(--word-crush, .52)); }
+  100% { opacity: 0; transform: translate3d(-30%, -.03em, 0) rotate(-3deg) scaleX(var(--word-vanish, .2)); }
 }
 .hero-bottom { display: flex; gap: 3rem; align-items: flex-end; }
 .hero-bottom p { max-width: 31rem; margin: 0; font-size: clamp(1rem, 1.35vw, 1.3rem); line-height: 1.45; }
