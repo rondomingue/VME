@@ -189,8 +189,8 @@ nav a:hover { color: var(--pink); }
 .elizabeth-copy p { max-width: 27rem; font-size: 1.1rem; line-height: 1.55; }
 
 footer { min-height: 70svh; display: grid; grid-template-columns: 1fr 1fr; align-items: end; padding: 4rem 4vw 2rem; position: relative; background: var(--pink); color: var(--deep); overflow: hidden; }
-.footer-logo { position: absolute; width: min(52vw, 43rem); right: -3vw; top: 50%; transform: translateY(-50%) rotate(8deg); }
-.footer-logo img { aspect-ratio: 1; object-fit: contain; filter: saturate(.86) contrast(1.08); }
+.footer-logo { position: absolute; width: min(48vw, 40rem); right: 2vw; top: 50%; transform: translateY(-50%) rotate(8deg); padding: clamp(1.25rem, 2.2vw, 2.5rem); border-radius: 50%; background: var(--deep); box-shadow: 0 2rem 5rem rgba(23,19,39,.28); }
+.footer-logo img { aspect-ratio: 1; object-fit: contain; filter: saturate(1.05) contrast(1.08); }
 footer > p { position: relative; z-index: 2; margin: 0 0 6rem; max-width: 32rem; font-size: clamp(3rem, 6vw, 7rem); line-height: .88; letter-spacing: -.07em; font-weight: 700; }
 .footer-meta { grid-column: 1 / -1; position: relative; z-index: 2; display: flex; justify-content: space-between; border-top: 1px solid rgba(23,19,39,.4); padding-top: 1rem; font: .68rem "DM Mono", monospace; text-transform: uppercase; }
 
@@ -234,7 +234,7 @@ footer > p { position: relative; z-index: 2; margin: 0 0 6rem; max-width: 32rem;
   .elizabeth-copy { min-height: 68svh; padding: 4rem 1.25rem; }
   .elizabeth-copy h2 { font-size: clamp(3.5rem, 14vw, 6rem); }
   footer { min-height: 80svh; padding: 3rem 1.25rem 1.5rem; }
-  .footer-logo { width: 82vw; right: -30vw; opacity: .78; }
+  .footer-logo { width: 78vw; right: -22vw; padding: 1rem; opacity: .96; }
   footer > p { max-width: 80%; margin-bottom: 7rem; }
 }
 
