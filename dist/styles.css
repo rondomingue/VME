@@ -43,7 +43,7 @@ button { font: inherit; }
   border-bottom: 1px solid rgba(255,255,255,.2);
 }
 .wordmark { display: flex; align-items: center; gap: .8rem; text-decoration: none; }
-.wordmark > span { color: var(--pink); font-weight: 800; font-size: 1.35rem; letter-spacing: -.08em; }
+.wordmark > img { width: 2.35rem; height: 2.35rem; object-fit: contain; }
 .wordmark small { font: 500 .62rem/.95 "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
 nav { display: flex; align-items: center; gap: 1.75rem; }
 nav a, .sound-button { font: 400 .7rem/1 "DM Mono", monospace; text-transform: uppercase; letter-spacing: .08em; text-decoration: none; }
@@ -59,6 +59,7 @@ nav a:hover { color: var(--pink); }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; }
 .scanlines { position: absolute; inset: 0; opacity: .16; background: repeating-linear-gradient(0deg, transparent 0 4px, #000 4px 5px); mix-blend-mode: overlay; }
 .hero-copy { position: relative; z-index: 2; padding: 8.5rem 3.5rem 3.25rem; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(145deg, rgba(23,19,39,.94), rgba(9,8,10,.98)); }
+.hero-logo { position: absolute; z-index: 1; top: 6.5rem; right: 3.5rem; width: clamp(9rem, 14vw, 15rem); height: auto; filter: drop-shadow(0 1.5rem 2.5rem rgba(240,0,190,.18)); transform: rotate(5deg); }
 .eyebrow, .section-label { font: 500 .72rem/1.3 "DM Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
 .eyebrow { color: var(--pink); }
 .hero h1 { margin: 2rem 0 3rem; font-size: clamp(4rem, 8vw, 9.5rem); line-height: .76; letter-spacing: -.09em; font-weight: 700; }
@@ -153,8 +154,8 @@ nav a:hover { color: var(--pink); }
 .elizabeth-copy p { max-width: 27rem; font-size: 1.1rem; line-height: 1.55; }
 
 footer { min-height: 70svh; display: grid; grid-template-columns: 1fr 1fr; align-items: end; padding: 4rem 4vw 2rem; position: relative; background: var(--pink); color: var(--deep); overflow: hidden; }
-.footer-logo { position: absolute; width: min(48vw, 40rem); right: -5vw; top: 50%; transform: translateY(-50%) rotate(8deg); border-radius: 50%; overflow: hidden; mix-blend-mode: multiply; }
-.footer-logo img { aspect-ratio: 1; object-fit: cover; }
+.footer-logo { position: absolute; width: min(52vw, 43rem); right: -3vw; top: 50%; transform: translateY(-50%) rotate(8deg); }
+.footer-logo img { aspect-ratio: 1; object-fit: contain; filter: saturate(.86) contrast(1.08); }
 footer > p { position: relative; z-index: 2; margin: 0 0 6rem; max-width: 32rem; font-size: clamp(3rem, 6vw, 7rem); line-height: .88; letter-spacing: -.07em; font-weight: 700; }
 .footer-meta { grid-column: 1 / -1; position: relative; z-index: 2; display: flex; justify-content: space-between; border-top: 1px solid rgba(23,19,39,.4); padding-top: 1rem; font: .68rem "DM Mono", monospace; text-transform: uppercase; }
 
@@ -164,7 +165,8 @@ footer > p { position: relative; z-index: 2; margin: 0 0 6rem; max-width: 32rem;
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-media { min-height: 44svh; }
   .hero-copy { padding: 3.5rem 1.25rem 2rem; min-height: 56svh; }
-  .hero h1 { font-size: clamp(4rem, 19vw, 7.5rem); margin: 1.5rem 0 3rem; }
+  .hero-logo { top: 2rem; right: 1.25rem; width: 7.5rem; }
+  .hero h1 { font-size: clamp(4rem, 19vw, 7.5rem); margin: 7rem 0 3rem; }
   .hero-bottom { gap: 1.5rem; }
   .statement { padding: 5rem 1.25rem; }
   .manifesto { font-size: clamp(2.2rem, 10vw, 4.25rem); }
@@ -192,7 +194,7 @@ footer > p { position: relative; z-index: 2; margin: 0 0 6rem; max-width: 32rem;
   .elizabeth-copy { min-height: 68svh; padding: 4rem 1.25rem; }
   .elizabeth-copy h2 { font-size: clamp(3.5rem, 14vw, 6rem); }
   footer { min-height: 80svh; padding: 3rem 1.25rem 1.5rem; }
-  .footer-logo { width: 90vw; right: -38vw; opacity: .7; }
+  .footer-logo { width: 82vw; right: -30vw; opacity: .78; }
   footer > p { max-width: 80%; margin-bottom: 7rem; }
 }
 
